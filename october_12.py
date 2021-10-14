@@ -56,6 +56,7 @@ class Student(Person):
 
     def getStudentInfo(self):
         print('Я студент {} {}'.format(self._name, self._surname))
+        print('Моя успеваемость:', self.__marks)
 
 #
 # Если мы хотим использовать атрибуты род класса в дочернем, то делай в род классе их protected, с private не
