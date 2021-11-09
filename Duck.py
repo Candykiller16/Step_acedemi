@@ -1,4 +1,4 @@
-class Duck():
+class Duck:
 
     def __init__(self, color, age):
         print('Утка родилась')
@@ -9,8 +9,9 @@ class Duck():
         return f"I'm a {self.getName()}. My color is {self.color}.My age is {self.age}"
 
 
-    def __del__(self):
-        return f'Утки {self} не стало'
+    def delete(self):
+        del self
+        print('Утки не стало')
 
     def __eq__(self, other):
         if isinstance(other, Duck):
@@ -80,9 +81,9 @@ class RubberDuck(Duck):
 class ToyDuck(Duck, Toy):
 
     def __init__(self, color, age, price, origin): # как унаследовать поля класса Toy ?
-        super(ToyDuck, self).__init__(color, age)
-        self.price = price
-        self.origin = origin
+        Duck.__init__(self, color, age)
+        Toy.__init__(self, price, origin)
+
 
     def __str__(self):
         return f"I'm a {self.getName()}. My color is {self.color}.My age is {self.age}. My price is {self.price}." \
@@ -93,9 +94,10 @@ class ToyDuck(Duck, Toy):
 
 
 c = ToyDuck('red', 18, 500, 'Viatnam') # Утка родилась
-d = ToyDuck('blue', 18, 500, 'Viatnam') # Утка родилась
 print(c)
-print(c == d) # True
-print(c == 18) # Нельзя сравнивать 18 с классом ToyDuck
-del c
+# d = ToyDuck('blue', 18, 500, 'Viatnam') # Утка родилась
+# print(c)
+# print(c == d) # True
+# print(c == 18) # Нельзя сравнивать 18 с классом ToyDuck
+
 #print(c) # name 'c' is not defined
