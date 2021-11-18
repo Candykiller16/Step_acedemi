@@ -33,8 +33,7 @@ class Cofee():
                 return k
 
     def __str__(self):
-        with open('cofee.txt', 'a') as p:
-            p.write(f'{self.getDiscriprion()} \n')
+        return f'{self.getDiscriprion()}'
 
     def __repr__(self):
         return f'{self.getDiscriprion()}'
@@ -94,6 +93,10 @@ class Cofee():
         elif s and m and w:  # with everything
             return f'Your {self.get_var_name()} with sugar, milk and whip'
 
+    def writeDescription(self):
+        with open('cofee.txt', 'a') as p:
+            p.write(f'{self.getDiscriprion()} \n')
+
 class Americano(Cofee):
     pass
 
@@ -106,18 +109,19 @@ class DarkRoast(Cofee):
 
 cofee = Cofee()
 americano = Americano()
-print(americano.getCost())
-print(americano.getDiscriprion())
+# print(americano.getCost())
+# print(americano.getDiscriprion())
 
 espresso = Espresso()
-print(espresso.getCost())
-print(espresso.getDiscriprion())
+# print(espresso.getCost())
+# print(espresso.getDiscriprion())
 
 darkroast = DarkRoast()
-print(darkroast.getCost())
-print(darkroast.getDiscriprion())
+# print(darkroast.getCost())
+# print(darkroast.getDiscriprion())
 
-americano.__str__()
-espresso.__str__()
-darkroast.__str__()
+# print(americano)
+# print(espresso)
+# print(darkroast)
+
 
